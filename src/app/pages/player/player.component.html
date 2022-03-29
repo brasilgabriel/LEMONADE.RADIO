@@ -1,0 +1,20 @@
+<nav id="sidebar">
+    <div>
+        <div routerLink="/inicio" #inicio (click)="selecionarInicio()">
+            <span id="inicio"></span>
+            <p>Início</p>
+        </div>
+
+        <div routerLink="/buscar" #buscar (click)="selecionarBuscar()">
+            <span id="buscar"></span>
+            <p>Buscar</p>
+        </div>
+
+        <div routerLink="/playlists" #playlists (click)="selecionarPlaylists()">
+            <span id="playlists"></span>
+            <p>Playlists</p>
+        </div>
+    </div>
+</nav>
+
+<app-player-card></app-player-card>
