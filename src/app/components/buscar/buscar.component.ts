@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import { MusicasService } from 'src/app/services/musicas.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class BuscarComponent implements OnInit {
   @ViewChild('section_erro', { static: false }) section_erro!: ElementRef;
   @ViewChild('section_loading', { static: false }) section_loading!: ElementRef;
   @ViewChild('section_musicas', { static: false }) section_musicas!: ElementRef;
+
+  static novaMusica = new EventEmitter<any>();
 
   frase: string;
   valor_input: string;
@@ -35,7 +37,6 @@ export class BuscarComponent implements OnInit {
     this.arrayMusicas = [];
     this.section_erro.nativeElement.style.display = 'none';
     this.section_loading.nativeElement.style.display = 'flex';
-
     this.buscarMusicas(this.valor_input)
   }
 
@@ -72,11 +73,8 @@ export class BuscarComponent implements OnInit {
               imagem_albumM: musica.album.cover_medium,
               preview: musica.preview
             }
-
             this.arrayMusicas.push(cardMusicas);
           }
-
-          localStorage.setItem('Músicas', JSON.stringify(this.arrayMusicas));
 
         } else {
           this.frase = 'NENHUM RESULTADO ENCONTRADO'
@@ -85,5 +83,23 @@ export class BuscarComponent implements OnInit {
         this.manipularDOM();
       }
     )
+  }
+
+  reproduzirMusica(musica: number) {
+
+    this.section_musicas.nativeElement.style.marginBottom = '100px';
+
+    const cardMusica = {
+      artista: this.arrayMusicas[musica].artista,
+      nome_musica: this.arrayMusicas[musica].nome_musica,
+      duracao_musica: this.arrayMusicas[musica].duracao_musica,
+      nome_album: this.arrayMusicas[musica].nome_album,
+      imagem_artista: this.arrayMusicas[musica].imagem_artista,
+      imagem_albumP: this.arrayMusicas[musica].imagem_albumP,
+      imagem_albumM: this.arrayMusicas[musica].imagem_albumM,
+      preview: this.arrayMusicas[musica].preview
+    }
+
+    BuscarComponent.novaMusica.emit(cardMusica);
   }
 }

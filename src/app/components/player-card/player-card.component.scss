@@ -1,22 +1,210 @@
 #player {
-    background-color: black;
-    height: 100%;
-    width: 250px;
+    display: block;
+    background-color: rgb(33, 33, 33);
+    height: 100px;
+    width: 100vw;
     position: fixed;
-    top: 0;
-    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
     z-index: 1;
+    display: none;
 
-    div {
-        height: 100%;
+    #div_1 {
         display: flex;
-        justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        width: 500px;
+        margin-left: 50px;
+
+        #div_album {
+            display: flex;
+            align-items: center;
+
+            #imagem_album {
+                width: 70px;
+            }
+        }
+
+        #div_nomes {
+            display: flex;
+            flex-direction: column;
+            margin-left: 15px;
+
+            #nome_musica {
+                color: white;
+                font-size: 15px;
+                font-weight: 550;
+                word-wrap: break-word;
+            }
+
+            #artista {
+                color: white;
+                font-size: 12px;
+                margin-top: 3px;
+                word-wrap: break-word;
+            }
+        }
     }
 
-    div p {
-        color: white;
-        font-size: 50px;
-        text-align: center;
+    #div_audio {
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
+
+        audio {
+            width: 600px;
+            height: 30px;
+        }
+
+        #favorito_vazio {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            margin-left: 20px;
+            color: rgb(255, 166, 0);
+        }
+
+        #favorito_preenchido {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            margin-left: 20px;
+            color: rgb(255, 166, 0);
+        }
+    }
+}
+
+@media screen and (max-width: 1250px) {
+
+    #player {
+        #div_1 {
+            width: 500px;
+        }
+
+        #div_audio audio {
+            width: 500px;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    #player {
+        #div_1 {
+            width: 350px;
+
+            #div_album #imagem_album {
+                width: 60px;
+            }
+
+            #div_nomes {
+                #nome_musica {
+                    font-size: 13px;
+                }
+
+                #artista {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        #div_audio audio {
+            width: 400px;
+        }
+    }
+}
+
+@media screen and (max-width:900px) {
+
+    #player {
+        height: 80px;
+
+        #div_1 {
+            width: 45vw;
+
+            #div_album #imagem_album {
+                width: 50px;
+            }
+        }
+
+        #div_audio {
+            audio {
+                width: 300px;
+                height: 25px;
+            }
+
+            #favorito_vazio {
+                width: 20px;
+                height: 20px;
+            }
+
+            #favorito_preenchido {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    #player #div_1 {
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width:600px) {
+
+    #player {
+        #div_1 {
+            width: 40vw;
+        }
+
+        #div_audio audio {
+            width: 200px;
+        }
+    }
+}
+
+@media screen and (max-width:450px) {
+
+    #player {
+        #div_1 {
+            #div_album {
+                #imagem_album {
+                    width: 40px;
+                }
+            }
+
+            #div_nomes {
+                #nome_musica {
+                    font-size: 10px;
+                }
+
+                #artista {
+                    font-size: 8px;
+                }
+            }
+        }
+
+        #div_audio {
+            audio {
+                width: 100px;
+                height: 20px;
+
+                #favorito_vazio {
+                    width: 15px;
+                    height: 15px;
+                }
+
+                #favorito_preenchido {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
     }
 }

@@ -1,48 +1,54 @@
 #section_buscar {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: end;
 
     div {
-        display: flex; 
+        display: flex;
         align-items: center;
+        justify-content: center;
         padding: 30px 0;
+        width: 87%;
 
-        input{
+        input {
             width: 400px;
             height: 40px;
             font-size: 20px;
-            font-weight: 500; 
+            font-weight: 500;
             border-radius: 50px;
             border: none;
             outline: none;
-            text-align: center; 
+            text-align: center;
         }
 
         input::placeholder {
             color: black;
-        } 
+        }
 
-        #search{
+        #search {
             cursor: pointer;
             margin-left: 10px;
             width: 30px;
             height: 30px;
             background-image: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' fill='rgb(255, 166, 0)' class='bi bi-search' viewBox='0 0 16 16'> <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/></svg>");
         }
-    } 
+    }
 }
 
 #section_loading {
     position: fixed;
     width: 100vw;
-    height: 50%;
+    height: 90vh;
     display: flex;
     align-items: center;
-    flex-direction: column-reverse;
+    justify-content: end;
     display: none;
 
     div {
+        width: 87%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         img {
             width: 120px;
         }
@@ -52,94 +58,298 @@
 #section_erro {
     position: fixed;
     width: 100vw;
-    height: 50%;
+    height: 90vh;
     display: flex;
-    flex-direction: column-reverse;
     align-items: center;
+    justify-content: end;
 
-    div p {
-        font-family: 'Oswald', sans-serif;
-        color: rgb(54, 54, 54);
-        font-size: 80px;
+    div {
+        width: 87%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            font-family: 'Oswald', sans-serif;
+            color: rgb(54, 54, 54);
+            font-size: 80px;
+        }
     }
 }
 
 #section_musicas {
-    width: 100%;
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     display: none;
 
-    #tabela_musicas {
-        width: 1200px;
-        text-align: center;
-        table-layout: fixed;
-        border-collapse: separate;
+    div {
+        width: 86%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        thead tr th {
-            color: rgb(255, 255, 255);
-        }
+        #tabela_musicas {
+            width: 1200px;
+            text-align: center;
+            table-layout: fixed;
+            border-collapse: separate;
 
-        tbody {
-            #musica { 
-                td {
-                    padding: 15px 0;
+            thead tr th {
+                color: rgb(255, 255, 255);
+            }
+
+            tbody #musica td {
+                padding: 15px 0;
+                color: rgb(255, 255, 255);
+                font-size: 15px;
+
+                #imagem_album {
+                    width: 60px;
+                    border-radius: 2px;
+                }
+
+                svg {
+                    cursor: pointer;
+                    width: 30px;
                     color: rgb(255, 255, 255);
-                    font-size: 15px;
-
-                    #imagem_album{
-                        width: 60px;
-                        border-radius: 2px;
-                    }
-
-                    #play {
-                        cursor: pointer;
-                        width: 30px;
-                        color: rgb(255, 255, 255);
-                    }
                 }
             }
         }
     }
 }
 
-@media screen and (max-width: 1540px) {
+@media screen and (max-width: 1600px) {
+
     #section_erro div p {
         font-size: 60px;
     }
+
+    #section_musicas div {
+        #tabela_musicas {
+            width: 1000px;
+        }
+    }
 }
 
-@media screen and (max-width: 1000px) {
-    
-    #section_buscar div input{
+@media screen and (max-width: 1450px) {
+
+    #section_musicas div #tabela_musicas {
+        width: 850px;
+
+        tbody #musica td #play {
+            width: 25px;
+        }
+
+    }
+}
+
+@media screen and (max-width: 1250px) {
+
+    #section_buscar div {
+        input {
+            width: 300px;
+            height: 35px;
+            font-size: 15px;
+        }
+
+        #search {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    #section_musicas div #tabela_musicas {
+        width: 750px;
+
+        tbody #musica td {
+            font-size: 12px;
+
+            #imagem_album {
+                width: 50px;
+            }
+
+            #play {
+                width: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    #section_buscar div input {
         width: 250px;
-        font-size: 20px;
+        height: 30px;
+    }
+
+    #section_loading div img {
+        width: 100px;
     }
 
     #section_erro {
-        height: 45%;
+        div p {
+            font-size: 50px;
+        }
     }
 
-    // #section_erro div p {
-    //     font-size: 50px;
-    // }
+    #section_musicas div #tabela_musicas {
+        width: 650px;
+
+        tbody #musica td {
+            #imagem_album {
+                width: 50px;
+            }
+
+            #play {
+                width: 20px;
+            }
+        }
+    }
 }
 
-// @media screen and (max-width: 950px) {
+@media screen and (max-width: 900px) {
 
-//     #section_buscar .input {
-//         padding: 30px 0;
-//     }
-    
-//     #section_buscar .input input{
-//         width: 350px;
-//         height: 30px;
-//         font-size: 20px;
-//         border-radius: 5px;
-//     }
-    
-//     #section_buscar .input span{
-//         font-size: 40px;
-//         margin-left: 15px;
-//     }
-// }
+    #section_buscar div,
+    #section_loading div,
+    #section_erro div,
+    #section_musicas div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    #section_erro {
+        div p {
+            font-size: 40px;
+        }
+    }
+
+    #section_musicas div #tabela_musicas {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    #section_loading div img {
+        width: 80px;
+    }
+
+    #section_erro {
+        div p {
+            font-size: 30px;
+        }
+    }
+
+    #section_musicas div #tabela_musicas {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    #section_buscar div {
+        input {
+            width: 200px;
+            height: 25px;
+            font-size: 13px;
+        }
+    }
+
+    #section_erro {
+        div p {
+            font-size: 25px;
+        }
+    }
+
+    #section_musicas div #tabela_musicas {
+        width: 400px;
+
+        thead tr th {
+            font-size: 12px;
+        }
+
+        tbody #musica td {
+            font-size: 10px;
+
+            #imagem_album {
+                width: 40px;
+            }
+
+            #play {
+                width: 20px;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    #section_buscar div {
+        input {
+            width: 150px;
+            height: 20px;
+            font-size: 10px;
+        }
+
+        #search {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+        }
+    }
+
+    #section_loading div img {
+        width: 60px;
+    }
+
+    #section_erro {
+        div p {
+            font-size: 20px;
+        }
+    }
+
+    #section_musicas {
+        margin-bottom: 80px;
+
+        div #tabela_musicas {
+            width: 350px;
+
+            thead tr th {
+                font-size: 10px;
+            }
+
+            tbody #musica td {
+                font-size: 8px;
+
+                #imagem_album {
+                    width: 35px;
+                }
+
+                #play {
+                    width: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    #section_buscar div {
+        input {
+            width: 150px;
+            height: 20px;
+            font-size: 10px;
+            margin-left: 25px;
+        }
+
+        #search {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+        }
+    }
+}

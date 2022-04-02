@@ -8,6 +8,7 @@ export const PlayerRotas: Routes = [
     {
         path: '',
         component: PlayerComponent,
+
         children: [
             {
                 path: 'inicio',
