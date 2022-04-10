@@ -1,0 +1,333 @@
+#section_loading {
+    position: fixed;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+
+    div {
+        width: 87%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 120px;
+        }
+    }
+}
+
+#section_mensagem {
+    position: fixed;
+    width: 100vw;
+    height: 90vh;
+    align-items: center;
+    justify-content: flex-end;
+    display: none;
+
+    div {
+        width: 87%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            font-family: 'Oswald', sans-serif;
+            color: rgb(54, 54, 54);
+            font-size: 80px;
+        }
+    }
+}
+
+#section_historico {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    display: none;
+
+    #div_titulo {
+        width: 80%;
+
+        h1 {
+            margin-top: 20px;
+            font-size: 50px;
+            color: rgb(54, 54, 54);
+            font-family: 'Oswald', sans-serif;
+        }
+    }
+
+    #div_card {
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        div {
+            width: 250px;
+            height: 300px;
+            margin: 0 10px 15px 10px;
+            background-color: rgb(33, 33, 33);
+            border-radius: 10px;
+            transition-property: background-color;
+            transition-duration: 0.5s;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            #span_excluir {
+                width: 90%;
+                height: 50px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+
+                svg {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                svg:hover {
+                    color: rgba(210, 208, 208, 0.284);
+                    cursor: pointer;
+                }
+            }
+
+            #imagem_album {
+                width: 150px;
+            }
+
+            #artista {
+                color: white;
+                font-size: 15px;
+                margin-top: 7px;
+
+            }
+
+            #nome_musica {
+                color: white;
+                font-size: 20px;
+                font-weight: 550;
+                text-align: center;
+            }
+        }
+
+        div:hover {
+            background-color: rgb(40, 40, 40);
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+
+    #section_mensagem div p {
+        font-size: 60px;
+    }
+
+    #section_historico {
+        margin-bottom: 100px;
+
+        #div_card div {
+            width: 200px;
+            height: 230px;
+
+            #span_excluir {
+                width: 90%;
+                height: 50px;
+
+                svg {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            #imagem_album {
+                width: 100px;
+            }
+
+            #artista {
+                font-size: 13px;
+            }
+
+            #nome_musica {
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+
+    #section_loading div img {
+        width: 100px;
+    }
+
+    #section_historico {
+        margin-bottom: 100px;
+
+        #div_card {
+            width: 83%;
+
+            div {
+                width: 150px;
+                height: 200px;
+
+                #span_excluir {
+                    width: 90%;
+                    height: 50px;
+
+                    svg {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+
+                #imagem_album {
+                    width: 75px;
+                }
+
+                #artista {
+                    font-size: 10px;
+
+                }
+
+                #nome_musica {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    #section_mensagem div {
+        width: 80%;
+
+        p {
+            font-size: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    #section_loading div {
+        width: 100%;
+    }
+
+    #section_mensagem div {
+        width: 100%;
+
+        p {
+            font-size: 50px;
+        }
+    }
+
+    #section_historico {
+        margin-bottom: 100px;
+
+        #div_titulo {
+            width: 90%;
+
+            h1 {
+                font-size: 40px;
+            }
+        }
+
+        #div_card {
+            width: 100%;
+
+            div {
+                width: 120px;
+                height: 170px;
+
+                #span_excluir {
+                    width: 90%;
+                    height: 40px;
+
+                    svg {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+
+                #imagem_album {
+                    width: 60px;
+                }
+
+                #artista {
+                    font-size: 10px;
+
+                }
+
+                #nome_musica {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    #section_loading div img {
+        width: 80px;
+    }
+
+    #section_mensagem div p {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    #section_mensagem div p {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    #section_loading div img {
+        width: 60px;
+    }
+
+    #section_mensagem div p {
+        font-size: 20px;
+    }
+
+    #section_historico {
+        #div_titulo h1 {
+            font-size: 30px;
+        }
+
+        #div_card div {
+            width: 100px;
+            height: 150px;
+
+            #span_excluir {
+                height: 35px;
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            #imagem_album {
+                width: 50px;
+            }
+
+            #artista {
+                font-size: 8px;
+            }
+
+            #nome_musica {
+                font-size: 11px;
+            }
+        }
+    }
+}

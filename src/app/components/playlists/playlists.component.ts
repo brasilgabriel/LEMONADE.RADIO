@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerCardComponent } from '../player-card/player-card.component';
 
 @Component({
   selector: 'app-playlists',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistsComponent implements OnInit {
 
-  constructor() { }
+  playlists: any;
+  favoritos: any;
+  musica: any;
 
-  ngOnInit(): void {
+  constructor() {
+    this.playlists = [];
+    this.favoritos = [];
+    this.musica = {};
   }
 
+  ngOnInit(): void {
+    PlayerCardComponent.favoritado.subscribe(
+      musica => {
+        this.musica = musica;
+      }
+    );
+  }
 }

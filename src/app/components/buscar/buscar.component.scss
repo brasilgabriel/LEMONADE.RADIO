@@ -1,6 +1,6 @@
 #section_buscar {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
     div {
         display: flex;
@@ -40,7 +40,7 @@
     height: 90vh;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     display: none;
 
     div {
@@ -55,32 +55,10 @@
     }
 }
 
-#section_erro {
-    position: fixed;
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-
-    div {
-        width: 87%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        p {
-            font-family: 'Oswald', sans-serif;
-            color: rgb(54, 54, 54);
-            font-size: 80px;
-        }
-    }
-}
-
 #section_musicas {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     display: none;
 
     div {

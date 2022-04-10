@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { PlayerComponent } from 'src/app/pages/player/player.component';
 import { MusicasService } from 'src/app/services/musicas.service';
 
 @Component({
@@ -9,52 +10,52 @@ import { MusicasService } from 'src/app/services/musicas.service';
 
 export class BuscarComponent implements OnInit {
 
-  @ViewChild('section_erro', { static: false }) section_erro!: ElementRef;
   @ViewChild('section_loading', { static: false }) section_loading!: ElementRef;
   @ViewChild('section_musicas', { static: false }) section_musicas!: ElementRef;
 
+  static mostrarMensagem = new EventEmitter<string>();
+  static esconderHistorico = new EventEmitter<void>();
   static novaMusica = new EventEmitter<any>();
 
-  frase: string;
   valor_input: string;
   arrayAPI: any;
   objMusicas: any;
   arrayMusicas: any;
+  historico: any;
 
   constructor(private musicasService: MusicasService) {
-    this.frase = 'NENHUMA BUSCA RECENTE';
     this.valor_input = '';
     this.arrayAPI = [];
     this.objMusicas = {};
     this.arrayMusicas = [];
+    this.historico = JSON.parse(localStorage.getItem('Histórico') as any) || [];
   }
 
   ngOnInit(): void {
   }
 
   loading() {
-
     this.arrayMusicas = [];
-    this.section_erro.nativeElement.style.display = 'none';
+
+    BuscarComponent.esconderHistorico.emit();
     this.section_loading.nativeElement.style.display = 'flex';
-    this.buscarMusicas(this.valor_input)
+
+    this.buscarMusicas(this.valor_input);
   }
 
   manipularDOM() {
-
     if (this.arrayMusicas.length > 0) {
       this.section_musicas.nativeElement.style.display = 'flex';
       this.section_loading.nativeElement.style.display = 'none';
 
     } else {
-      this.section_erro.nativeElement.style.display = 'flex';
+      BuscarComponent.mostrarMensagem.emit('flex');
       this.section_loading.nativeElement.style.display = 'none';
       this.section_musicas.nativeElement.style.display = 'none';
     }
   }
 
   buscarMusicas(valor: string) {
-
     this.musicasService.buscarMusicas(valor).subscribe(
       musicas => {
         this.arrayAPI = musicas;
@@ -75,9 +76,8 @@ export class BuscarComponent implements OnInit {
             }
             this.arrayMusicas.push(cardMusicas);
           }
-
         } else {
-          this.frase = 'NENHUM RESULTADO ENCONTRADO'
+          BuscarComponent.mostrarMensagem.emit();
         }
 
         this.manipularDOM();
@@ -86,7 +86,6 @@ export class BuscarComponent implements OnInit {
   }
 
   reproduzirMusica(musica: number) {
-
     this.section_musicas.nativeElement.style.marginBottom = '100px';
 
     const cardMusica = {
@@ -100,6 +99,23 @@ export class BuscarComponent implements OnInit {
       preview: this.arrayMusicas[musica].preview
     }
 
+    localStorage.removeItem('Histórico');
+    this.historico.push(cardMusica);
+
+    let cont: number = 0;
+
+    for (let i in this.historico) {
+      if (JSON.stringify(cardMusica) === JSON.stringify(this.historico[i])) {
+        cont += 1
+
+        if (cont > 1) {
+          cont = 0;
+          this.historico.splice(i, 1);
+        }
+      }
+    }
+
+    localStorage.setItem('Histórico', JSON.stringify(this.historico));
     BuscarComponent.novaMusica.emit(cardMusica);
   }
 }

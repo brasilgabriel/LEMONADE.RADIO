@@ -8,6 +8,7 @@ import { InicioComponent } from 'src/app/components/inicio/inicio.component';
 import { PlaylistsComponent } from 'src/app/components/playlists/playlists.component';
 import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
 import { FormsModule } from '@angular/forms';
+import { HistoricoComponent } from 'src/app/components/historico/historico.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     InicioComponent,
     BuscarComponent,
     PlaylistsComponent,
-    PlayerCardComponent
+    PlayerCardComponent,
+    HistoricoComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,14 +9,12 @@ import { Router } from '@angular/router';
 
 export class PlayerComponent implements OnInit {
 
-  menuSelecionado: string;
-  teste: any;
+  static mostrarHistorico = new EventEmitter<void>();
 
-  constructor(
-    private router: Router
-  ) {
+  menuSelecionado: string;
+
+  constructor(private router: Router) {
     this.menuSelecionado = 'buscar'; // dps colocar inicio
-    this.teste = [];
   }
 
   ngOnInit(): void {
@@ -24,6 +22,8 @@ export class PlayerComponent implements OnInit {
   }
 
   selecionarMenu(menu: string) {
+    menu === 'buscar' ? PlayerComponent.mostrarHistorico.emit() : '';
+
     this.menuSelecionado = menu;
     this.router.navigateByUrl(`/player/${menu}`);
   }

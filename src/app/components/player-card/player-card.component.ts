@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { BuscarComponent } from '../buscar/buscar.component';
 
 @Component({
@@ -14,10 +15,14 @@ export class PlayerCardComponent implements OnInit {
   @ViewChild('favorito_vazio', { static: false }) favorito_vazio!: ElementRef;
   @ViewChild('favorito_preenchido', { static: false }) favorito_preenchido!: ElementRef;
 
+  static favoritado = new EventEmitter<any>();
+
   musica: any;
+  favoritos: any;
 
   constructor() {
     this.musica = {};
+    this.favoritos = [];
   }
 
   ngOnInit(): void {
@@ -31,20 +36,49 @@ export class PlayerCardComponent implements OnInit {
 
   reproduzirMusica() {
     this.player.nativeElement.style.display = 'grid';
-    this.favorito_vazio.nativeElement.style.display = 'block';
-    this.favorito_preenchido.nativeElement.style.display = 'none';
+    this.verificarFavoritado();
   }
 
-  favoritar() {
+  verificarFavoritado() {
+    this.favorito_vazio.nativeElement.style.display = 'block';
+    this.favorito_preenchido.nativeElement.style.display = 'none';
 
-    // validar dependendo se estiver na playlist de favoritos
-    if (this.favorito_vazio.nativeElement.style.display === 'block') {
-      this.favorito_vazio.nativeElement.style.display = 'none';
-      this.favorito_preenchido.nativeElement.style.display = 'block';
-
-    } else {
-      this.favorito_vazio.nativeElement.style.display = 'block';
-      this.favorito_preenchido.nativeElement.style.display = 'none';
+    for (let i in this.favoritos) {
+      if (JSON.stringify(this.musica) === JSON.stringify(this.favoritos[i])) {
+        this.favorito_vazio.nativeElement.style.display = 'none';
+        this.favorito_preenchido.nativeElement.style.display = 'block';
+      }
     }
+  }
+
+
+  favoritar() {
+    PlayerCardComponent.favoritado.emit(this.musica);
+    localStorage.removeItem('Favoritos');
+
+    this.favoritos.push(this.musica);
+    let cont: number = 0;
+
+    for (let i in this.favoritos) {
+
+      if (JSON.stringify(this.musica) === JSON.stringify(this.favoritos[i])) {
+        cont += 1
+        this.favorito_vazio.nativeElement.style.display = 'none';
+        this.favorito_preenchido.nativeElement.style.display = 'block'
+
+        if (cont > 1) {
+          cont = 0;
+
+          this.favoritos = this.favoritos.filter((posicaoMusica: any) => {
+            return JSON.stringify(posicaoMusica) !== JSON.stringify(this.favoritos[i])
+          })
+
+          this.favorito_vazio.nativeElement.style.display = 'block';
+          this.favorito_preenchido.nativeElement.style.display = 'none';
+        }
+      }
+    }
+
+    localStorage.setItem('Favoritos', JSON.stringify(this.favoritos));
   }
 }
