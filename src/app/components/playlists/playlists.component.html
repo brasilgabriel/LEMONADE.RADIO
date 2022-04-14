@@ -5,7 +5,15 @@
 </header>
 
 <section id="playlists" #playlists>
-    <div id="favoritos">
+    <div>
+        <div class="card_playlists" #favoritos>
+            <div class="div_albuns">
+                <img *ngFor="let musica of capaFavoritos" id="imagem_album" src="{{ musica }}">
+            </div>
 
+            <div class="nome_playlist">
+                <p>Favoritos</p>
+            </div>
+        </div>
     </div>
 </section>

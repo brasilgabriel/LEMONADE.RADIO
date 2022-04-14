@@ -1,105 +1,149 @@
 #player {
-    display: block;
     background-color: rgb(33, 33, 33);
-    height: 100px;
+    height: 70px;
     width: 100vw;
     position: fixed;
     bottom: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
     z-index: 1;
     display: none;
 
-    #div_1 {
+    div {
+        width: 100vw;
+        height: 70px;
         display: flex;
         flex-direction: row;
-        align-items: center;
-        width: 500px;
-        margin-left: 50px;
+        justify-content: space-between;
 
-        #div_album {
+        #div_1 {
             display: flex;
             align-items: center;
+            width: 500px;
+            margin-left: 50px;
 
-            #imagem_album {
-                width: 70px;
+            #div_album {
+                width: 60px;
+                display: flex;
+                align-items: center;
+
+                #imagem_album {
+                    width: 60px;
+                }
+            }
+
+            #div_nomes {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 10px;
+
+                #nome_musica {
+                    color: white;
+                    font-size: 15px;
+                    font-weight: 550;
+                    word-wrap: break-word;
+                }
+
+                #artista {
+                    color: white;
+                    font-size: 12px;
+                    margin-top: 3px;
+                    word-wrap: break-word;
+                }
             }
         }
 
-        #div_nomes {
+        #div_audio {
             display: flex;
-            flex-direction: column;
-            margin-left: 15px;
+            justify-content: space-between;
+            align-items: center;
+            width: 640px;
 
-            #nome_musica {
-                color: white;
-                font-size: 15px;
-                font-weight: 550;
-                word-wrap: break-word;
+            audio {
+                width: 600px;
+                height: 30px;
             }
 
-            #artista {
+            #favorito_vazio {
+                cursor: pointer;
+                width: 25px;
+                height: 25px;
+                color: rgb(255, 166, 0);
+            }
+
+            #favorito_preenchido {
+                cursor: pointer;
+                width: 25px;
+                height: 25px;
+                color: rgb(255, 166, 0);
+                display: none;
+            }
+        }
+
+        #div_playlist {
+            width: 440px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-right: 60px;
+
+            svg {
+                width: 40px;
+                height: 40px;
                 color: white;
-                font-size: 12px;
-                margin-top: 3px;
-                word-wrap: break-word;
+                cursor: pointer;
+            }
+
+            p {
+                font-size: 20px;
+                margin-left: 7px;
+                color: white;
+                cursor: pointer;
             }
         }
     }
+}
 
-    #div_audio {
-        display: flex;
-        align-items: center;
-        margin-right: 50px;
+@media screen and (max-width:1700px) {
+    #player div {
+        #div_1 {
+            width: 400px;
+        }
+
+        #div_playlist {
+            width: 340px;
+        }
+    }
+}
+
+@media screen and (max-width:1500px) {
+    #player div {
+        #div_1 {
+            width: 300px;
+        }
+
+        #div_playlist {
+            width: 240px;
+        }
+    }
+}
+
+@media screen and (max-width:1300px) {
+    #player div #div_audio {
+        width: 440px;
 
         audio {
-            width: 600px;
-            height: 30px;
-        }
-
-        #favorito_vazio {
-            cursor: pointer;
-            width: 25px;
-            height: 25px;
-            margin-left: 20px;
-            color: rgb(255, 166, 0);
-        }
-
-        #favorito_preenchido {
-            cursor: pointer;
-            width: 25px;
-            height: 25px;
-            margin-left: 20px;
-            color: rgb(255, 166, 0);
-            display: none;
+            width: 400px;
         }
     }
 }
 
-@media screen and (max-width: 1250px) {
-
-    #player {
+@media screen and (max-width:1100px) {
+    #player div {
         #div_1 {
-            width: 500px;
-        }
-
-        #div_audio audio {
-            width: 500px;
-        }
-    }
-}
-
-@media screen and (max-width: 1100px) {
-
-    #player {
-        #div_1 {
-            width: 350px;
-
-            #div_album #imagem_album {
-                width: 60px;
-            }
+            width: 250px;
+            margin-left: 25px;
 
             #div_nomes {
                 #nome_musica {
@@ -112,8 +156,28 @@
             }
         }
 
-        #div_audio audio {
-            width: 400px;
+        #div_playlist {
+            width: 250px;
+            margin-right: 25px;
+
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1000px) {
+    #player div #div_audio {
+        width: 340px;
+
+        audio {
+            width: 300px;
         }
     }
 }
@@ -121,30 +185,69 @@
 @media screen and (max-width:900px) {
 
     #player {
-        height: 80px;
+        height: 100px;
+        z-index: 0;
+        align-items: flex-start;
 
-        #div_1 {
-            width: 45vw;
+        div {
+            height: 50px;
 
-            #div_album #imagem_album {
-                width: 50px;
+            #div_1 {
+                width: 200px;
+                margin-left: 10px;
+
+                #div_album {
+                    width: 40px;
+
+                    #imagem_album {
+                        width: 40px;
+                    }
+                }
+
+                #div_nomes {
+                    margin-left: 5px;
+
+                    #nome_musica {
+                        font-size: 12px;
+                    }
+
+                    #artista {
+                        font-size: 10px;
+                    }
+                }
             }
-        }
 
-        #div_audio {
-            audio {
-                width: 300px;
-                height: 25px;
+            #div_audio {
+                width: 250px;
+
+                audio {
+                    width: 220px;
+                    height: 25px;
+                }
+
+                #favorito_vazio {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                #favorito_preenchido {
+                    width: 20px;
+                    height: 20px;
+                }
             }
 
-            #favorito_vazio {
-                width: 20px;
-                height: 20px;
-            }
+            #div_playlist {
+                width: 200px;
+                margin-right: 20px;
 
-            #favorito_preenchido {
-                width: 20px;
-                height: 20px;
+                p {
+                    font-size: 15px;
+                }
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
             }
         }
     }
@@ -152,31 +255,36 @@
 
 @media screen and (max-width:700px) {
 
-    #player #div_1 {
-        width: 35vw;
+    #player div {
+        #div_1 {
+            width: 180px;
+        }
+
+        #div_audio {
+            width: 210px;
+
+            audio {
+                width: 180px;
+            }
+        }
+
+        #div_playlist {
+            width: 180px;
+        }
     }
 }
 
 @media screen and (max-width:600px) {
 
-    #player {
+    #player div {
         #div_1 {
-            width: 40vw;
-        }
+            width: 130px;
 
-        #div_audio audio {
-            width: 200px;
-        }
-    }
-}
-
-@media screen and (max-width:450px) {
-
-    #player {
-        #div_1 {
             #div_album {
+                width: 30px;
+
                 #imagem_album {
-                    width: 40px;
+                    width: 30px;
                 }
             }
 
@@ -191,21 +299,74 @@
             }
         }
 
-        #div_audio {
-            audio {
-                width: 100px;
-                height: 20px;
+        #div_playlist {
+            width: 100px;
 
-                #favorito_vazio {
-                    width: 15px;
-                    height: 15px;
-                }
+            p {
+                display: none;
+            }
+        }
+    }
+}
 
-                #favorito_preenchido {
-                    width: 15px;
-                    height: 15px;
+@media screen and (max-width:500px) {
+
+    #player div {
+        #div_1 {
+            width: 110px;
+
+            #div_album {
+                width: 25px;
+
+                #imagem_album {
+                    width: 25px;
                 }
             }
+        }
+
+        #div_audio {
+            width: 170px;
+
+            audio {
+                width: 150px;
+            }
+
+            #favorito_vazio {
+                width: 15px;
+                height: 15px;
+            }
+
+            #favorito_preenchido {
+                width: 15px;
+                height: 15px;
+            }
+        }
+
+        #div_playlist {
+            width: 80px;
+
+            p {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:400px) {
+
+    #player div {
+        #div_audio {
+            width: 150px;
+
+            audio {
+                width: 130px;
+                height: 20px;
+            }
+        }
+
+        #div_playlist {
+            width: 35px;
+            margin-right: 5px;
         }
     }
 }

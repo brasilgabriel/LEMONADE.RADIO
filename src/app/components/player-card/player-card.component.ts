@@ -32,10 +32,12 @@ export class PlayerCardComponent implements OnInit {
         this.reproduzirMusica();
       }
     );
+
+    JSON.parse(localStorage.getItem('Favoritos') as any) !== null ? this.favoritos = JSON.parse(localStorage.getItem('Favoritos') as any) : '';
   }
 
   reproduzirMusica() {
-    this.player.nativeElement.style.display = 'grid';
+    this.player.nativeElement.style.display = 'block';
     this.verificarFavoritado();
   }
 
@@ -54,7 +56,7 @@ export class PlayerCardComponent implements OnInit {
 
   favoritar() {
     PlayerCardComponent.favoritado.emit(this.musica);
-    localStorage.removeItem('Favoritos');
+    JSON.parse(localStorage.getItem('Favoritos') as any) !== null ? this.favoritos = JSON.parse(localStorage.getItem('Favoritos') as any) : '';
 
     this.favoritos.push(this.musica);
     let cont: number = 0;
