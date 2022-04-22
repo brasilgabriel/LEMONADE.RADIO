@@ -1,12 +1,12 @@
-<header>
+<header *ngIf="mostrar_playlists">
     <div>
         <h1>MINHAS PLAYLISTS</h1>
     </div>
 </header>
 
-<section id="playlists" #playlists>
+<section id="playlists" *ngIf="mostrar_playlists">
     <div>
-        <div class="card_playlists" #favoritos>
+        <div class="card_playlists" #favoritos (click)="mostrarMusicas()">
             <div class="div_albuns">
                 <img *ngFor="let musica of capaFavoritos" id="imagem_album" src="{{ musica }}">
             </div>
@@ -15,5 +15,48 @@
                 <p>Favoritos</p>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="section_musicas" *ngIf="section_musicas" #section_musicas>
+    <div id="div_titulo">
+        <h2>Favoritos</h2>
+    </div>
+
+    <div id="div_mensagem" *ngIf="div_mensagem">
+        <p>PLAYLIST VAZIA</p>
+    </div>
+
+    <div id="div_tabela" *ngIf="div_tabela">
+        <table id="tabela_musicas">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Artista</th>
+                    <th>Música</th>
+                    <th>Álbum</th>
+                    <th>Duração</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="musica" *ngFor="let musica of favoritos; index as i">
+                    <td><img id="imagem_album" src="{{ favoritos[i].album.cover_small }}"></td>
+                    <td>{{ favoritos[i].artist.name }}</td>
+                    <td>{{ favoritos[i].title }}</td>
+                    <td>{{ favoritos[i].album.title }}</td>
+                    <td>{{ tratarDuracao(favoritos[i].duration) }}</td>
+
+                    <td (click)="reproduzirMusica(i)">
+                        <svg id="play" xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-play-circle'
+                            viewBox='0 0 16 16'>
+                            <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' />
+                            <path
+                                d='M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z' />
+                        </svg>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>

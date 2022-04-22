@@ -1,75 +1,28 @@
-header {
+#section_loading {
+    position: fixed;
+    width: 100vw;
     display: flex;
+    align-items: center;
     justify-content: flex-end;
 
     div {
-        width: 80%;
+        width: 87%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        h1 {
-            margin-top: 20px;
-            font-size: 80px;
-            color: white;
-            font-family: 'Oswald', sans-serif;
+        img {
+            width: 120px;
         }
     }
 }
 
-#playlists {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+.inicio {
+    height: 100vh;
+}
 
-    div {
-        width: 85%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        .card_playlists {
-            width: 250px;
-            height: 300px;
-            margin: 0 10px 15px 10px;
-            background-color: rgb(33, 33, 33);
-            border-radius: 10px;
-            transition-property: background-color;
-            transition-duration: 0.5s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            cursor: pointer;
-
-            .div_albuns {
-                width: 80%;
-                height: 200px;
-                display: grid;
-                grid-template-columns: repeat(2, 2fr);
-
-                #imagem_album {
-                    width: 100px;
-                }
-            }
-
-            .nome_playlist {
-                display: flex;
-                justify-content: center;
-
-                p {
-                    color: white;
-                    margin-top: 7px;
-                    font-size: 20px;
-                    font-weight: 550;
-                    text-align: center;
-                }
-            }
-        }
-
-        .card_playlists:hover {
-            background-color: rgb(40, 40, 40);
-        }
-    }
+.buscar {
+    height: 90vh;
 }
 
 #section_musicas {
@@ -88,19 +41,6 @@ header {
             color: white;
             font-size: 60px;
             font-family: 'Oswald', sans-serif;
-        }
-    }
-
-    #div_mensagem {
-        width: 85%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        p {
-            font-family: 'Oswald', sans-serif;
-            color: rgb(54, 54, 54);
-            font-size: 80px;
         }
     }
 
@@ -141,6 +81,7 @@ header {
 }
 
 @media screen and (max-width: 1600px) {
+
     #section_musicas {
         #div_titulo {
             width: 80vw;
@@ -153,6 +94,7 @@ header {
 }
 
 @media screen and (max-width: 1450px) {
+
     #section_musicas #div_tabela #tabela_musicas {
         width: 850px;
 
@@ -162,31 +104,8 @@ header {
     }
 }
 
-@media screen and (max-width: 1350px) {
-    header div h1 {
-        font-size: 70px;
-    }
-
-    #playlists div .card_playlists {
-        width: 200px;
-        height: 230px;
-
-        .div_albuns {
-            width: 60%;
-            height: 140px;
-
-            #imagem_album {
-                width: 70px;
-            }
-        }
-    }
-
-    #section_musicas #div_mensagem p {
-        font-size: 60px;
-    }
-}
-
 @media screen and (max-width: 1250px) {
+
     #section_musicas #div_tabela #tabela_musicas {
         width: 750px;
 
@@ -205,6 +124,11 @@ header {
 }
 
 @media screen and (max-width: 1100px) {
+
+    #section_loading div img {
+        width: 100px;
+    }
+
     #section_musicas {
         #div_titulo {
             width: 78vw;
@@ -226,39 +150,11 @@ header {
     }
 }
 
-@media screen and (max-width: 1000px) {
-    #section_musicas #div_mensagem {
-        width: 80%;
-
-        p {
-            font-size: 50px;
-        }
-    }
-}
-
 @media screen and (max-width: 900px) {
-    header div {
-        width: 100%;
-        display: flex;
-        justify-content: center;
 
-        h1 {
-            margin-top: 10px;
-            font-size: 60px;
-        }
-    }
-
-    #playlists div,
+    #section_loading div,
     #section_musicas #div_tabela {
-        width: 100%
-    }
-
-    #section_musicas #div_mensagem {
         width: 100%;
-
-        p {
-            font-size: 50px;
-        }
     }
 
     #section_musicas #div_titulo {
@@ -273,49 +169,22 @@ header {
 }
 
 @media screen and (max-width: 750px) {
-    #section_mensagem div p {
-        font-size: 40px;
-    }
-
     #section_musicas #div_tabela #tabela_musicas {
         width: 600px;
     }
 }
 
 @media screen and (max-width: 650px) {
+    #section_loading div img {
+        width: 80px;
+    }
+
     #section_musicas #div_tabela #tabela_musicas {
         width: 500px;
     }
 }
 
-@media screen and (max-width: 550px) {
-    #section_musicas #div_mensagem p {
-        font-size: 30px;
-    }
-}
-
 @media screen and (max-width: 450px) {
-    header div h1 {
-        font-size: 40px;
-    }
-
-    #playlists div .card_playlists {
-        width: 100px;
-        height: 150px;
-
-        .div_albuns {
-            width: 70%;
-            height: 80px;
-
-            #imagem_album {
-                width: 40px;
-            }
-        }
-
-        .nome_playlist p {
-            font-size: 12px;
-        }
-    }
 
     #section_musicas {
         #div_titulo h2 {

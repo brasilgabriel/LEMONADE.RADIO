@@ -21,9 +21,9 @@
     position: fixed;
     width: 100vw;
     height: 90vh;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
-    display: none;
 
     div {
         width: 87%;
@@ -46,7 +46,6 @@
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    display: none;
 
     #div_titulo {
         width: 80%;
@@ -197,7 +196,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-
     #section_mensagem div {
         width: 80%;
 
@@ -267,7 +265,6 @@
 }
 
 @media screen and (max-width: 700px) {
-
     #section_loading div img {
         width: 80px;
     }
@@ -278,14 +275,12 @@
 }
 
 @media screen and (max-width: 550px) {
-
     #section_mensagem div p {
         font-size: 30px;
     }
 }
 
 @media screen and (max-width: 450px) {
-
     #section_loading div img {
         width: 60px;
     }

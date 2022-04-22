@@ -1,3 +1,53 @@
-<section>
-    <p>rota início</p>
+<section id="section_inicio" *ngIf="section_inicio">
+    <div class="div_titulo">
+        <h2>RECOMENDADOS PARA VOCÊ</h2>
+    </div>
+
+    <div class="div_card">
+        <div id="div_recomendados" (click)="buscarMusicas(recomendados[i].name)"
+            *ngFor="let artista of recomendados; index as i">
+            <img class="imagem_artista" src="{{ recomendados[i].picture_medium }}">
+            <p class="nome_artista">{{ recomendados[i].name }}</p>
+        </div>
+    </div>
+
+    <div class="div_titulo">
+        <h2>NOVOS LANÇAMENTOS</h2>
+    </div>
+
+    <div class="div_card">
+        <div *ngFor="let musica of lancamentos; index as i">
+            <img class="imagem_album" src="{{ lancamentos[i].album.cover_medium }}">
+            <p class="artista">{{ lancamentos[i].artist.name }}</p>
+            <p class="nome_musica">{{ lancamentos[i].title }}</p>
+
+            <svg (click)="reproduzirMusica(lancamentos[i])" id="play" xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor' class='bi bi-play-circle' viewBox='0 0 16 16'>
+                <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' />
+                <path
+                    d='M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z' />
+            </svg>
+        </div>
+    </div>
+
+    <div class="div_titulo">
+        <h2>ROCK DAS ANTIGAS</h2>
+    </div>
+
+    <div class="div_card">
+        <div *ngFor="let musica of rockAntigas; index as i">
+            <img class="imagem_album" src="{{ rockAntigas[i].album.cover }}">
+            <p class="artista">{{ rockAntigas[i].artist.name }}</p>
+            <p class="nome_musica">{{ rockAntigas[i].title }}</p>
+
+            <svg (click)="reproduzirMusica(rockAntigas[i])" id="play" xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor' class='bi bi-play-circle' viewBox='0 0 16 16'>
+                <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' />
+                <path
+                    d='M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z' />
+            </svg>
+        </div>
+    </div>
 </section>
+
+<app-resultado-musicas></app-resultado-musicas>

@@ -1,37 +1,35 @@
-<section id="section_loading" #section_loading>
+<section id="section_loading" *ngIf="section_loading">
     <div>
         <img src="../../../assets/img/loading.gif" alt="Loading">
     </div>
 </section>
 
-<section id="section_mensagem" #section_mensagem>
+<section id="section_mensagem" *ngIf="section_mensagem">
     <div>
         <p>{{ frase }}</p>
     </div>
 </section>
 
-<section id="section_historico" #section_historico>
-
+<section id="section_historico" *ngIf="section_historico">
     <div id="div_titulo">
         <h1>HISTÓRICO</h1>
     </div>
 
     <div id="div_card">
-        <div *ngFor="let musica of historico">
+        <div *ngFor="let musica of historico; index as i">
 
             <span id="span_excluir">
-                <svg (click)="excluirMusicaHistorico(historico.indexOf(musica))" xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <svg (click)="excluirMusicaHistorico(historico.indexOf(historico[i]))"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                     <path
                         d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                 </svg>
             </span>
 
-            <img id="imagem_album" src="{{ musica.imagem_albumM }}">
-            <p id="artista">{{ musica.artista }}</p>
-            <p id="nome_musica">{{ musica.nome_musica }}</p>
+            <img id="imagem_album" src="{{ historico[i].album.cover_medium }}">
+            <p id="artista">{{ historico[i].artist.name }}</p>
+            <p id="nome_musica">{{ historico[i].title }}</p>
 
         </div>
     </div>
-
 </section>

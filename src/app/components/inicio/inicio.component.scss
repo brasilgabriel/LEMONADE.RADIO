@@ -1,0 +1,332 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-bottom: 100px;
+
+    .div_titulo {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        width: 83%;
+
+        h2 {
+            color: white;
+            font-size: 60px;
+            font-family: 'Oswald', sans-serif;
+        }
+    }
+
+    .div_card {
+        display: flex;
+        justify-content: space-evenly;
+        width: 85%;
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 250px;
+            height: 300px;
+            background-color: rgb(33, 33, 33);
+            border-radius: 10px;
+            transition-property: background-color;
+            transition-duration: 0.5s;
+
+            .imagem_artista {
+                width: 190px;
+                border-radius: 50%;
+            }
+
+            .nome_artista {
+                font-size: 20px;
+                font-weight: 550;
+                margin-top: 7px;
+                color: white;
+                text-align: center;
+                word-wrap: break-word;
+            }
+
+            .imagem_album {
+                width: 150px;
+            }
+
+            .artista {
+                font-size: 15px;
+                margin-top: 7px;
+                color: white;
+                text-align: center;
+                word-wrap: break-word;
+            }
+
+            .nome_musica {
+                color: white;
+                font-size: 20px;
+                font-weight: 550;
+                text-align: center;
+                word-wrap: break-word;
+            }
+
+            #play {
+                width: 35px;
+                height: 35px;
+                margin-top: 10px;
+                color: white;
+                cursor: pointer;
+            }
+        }
+
+        div:hover {
+            background-color: rgb(40, 40, 40);
+        }
+
+        #div_recomendados {
+            cursor: pointer
+        }
+    }
+}
+
+@media screen and (max-width: 1650px) {
+    section {
+        .div_titulo {
+            width: 80vw;
+        }
+
+        .div_card div {
+            width: 200px;
+            height: 250px;
+
+            .imagem_artista {
+                width: 150px;
+            }
+
+            .imagem_album {
+                width: 120px;
+            }
+
+            .artista {
+                font-size: 14px;
+            }
+
+            .nome_musica {
+                font-size: 18px;
+            }
+
+            #play {
+                width: 30px;
+                height: 30px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    section .div_card {
+        width: 82vw;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    section {
+        .div_titulo {
+            width: 82vw;
+
+            h2 {
+                font-size: 50px;
+            }
+        }
+
+        .div_card {
+            width: 85vw;
+
+            div {
+                width: 180px;
+                height: 230px;
+
+                .imagem_artista {
+                    width: 120px;
+                }
+
+                .imagem_album {
+                    width: 100px;
+                }
+
+                .artista {
+                    font-size: 13px;
+                }
+
+                .nome_musica {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    section {
+        .div_titulo {
+            width: 80vw;
+        }
+
+        .div_card {
+            width: 83vw;
+
+            div {
+                margin: 10px;
+
+                .nome_artista {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    section {
+        .div_titulo {
+            width: 77vw;
+        }
+
+        .div_card {
+            width: 80vw;
+
+            div {
+                width: 150px;
+                height: 200px;
+
+
+                .imagem_artista {
+                    width: 100px;
+                }
+
+                .imagem_album {
+                    width: 80px;
+                }
+
+                .artista {
+                    font-size: 12px;
+                }
+
+                .nome_musica {
+                    font-size: 15px;
+                }
+
+                #play {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    section {
+        align-items: center;
+
+        .div_titulo {
+            width: 90vw;
+        }
+
+        .div_card {
+            width: 100vw;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    section {
+        .div_titulo h2 {
+            font-size: 40px;
+        }
+
+        .div_card div {
+            width: 130px;
+            height: 180px;
+            margin: 5px;
+
+
+            .imagem_artista {
+                width: 80px;
+            }
+
+            .nome_artista {
+                font-size: 15px;
+            }
+
+            .imagem_album {
+                width: 60px;
+            }
+
+            .artista {
+                font-size: 10px;
+            }
+
+            .nome_musica {
+                font-size: 13px;
+            }
+
+            #play {
+                width: 20px;
+                height: 20px;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    section {
+        .div_titulo h2 {
+            font-size: 30px;
+        }
+
+        .div_card {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    section {
+        .div_titulo {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            h2 {
+                font-size: 25px;
+            }
+        }
+
+        .div_card div {
+            width: 100px;
+            height: 150px;
+
+            .imagem_artista {
+                width: 60px;
+            }
+
+            .nome_artista {
+                font-size: 12px;
+            }
+
+            .imagem_album {
+                width: 50px;
+            }
+
+            .artista {
+                font-size: 10px;
+            }
+
+            .nome_musica {
+                font-size: 13px;
+            }
+        }
+    }
+}

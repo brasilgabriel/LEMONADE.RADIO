@@ -9,6 +9,7 @@ import { PlaylistsComponent } from 'src/app/components/playlists/playlists.compo
 import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
 import { FormsModule } from '@angular/forms';
 import { HistoricoComponent } from 'src/app/components/historico/historico.component';
+import { ResultadoMusicasComponent } from 'src/app/components/resultado-musicas/resultado-musicas.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HistoricoComponent } from 'src/app/components/historico/historico.compo
     BuscarComponent,
     PlaylistsComponent,
     PlayerCardComponent,
-    HistoricoComponent
+    HistoricoComponent,
+    ResultadoMusicasComponent
   ],
   imports: [
     CommonModule,

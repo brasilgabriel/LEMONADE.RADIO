@@ -5,7 +5,6 @@
     position: fixed;
     bottom: 0;
     z-index: 1;
-    display: none;
 
     div {
         width: 100vw;
@@ -53,53 +52,32 @@
         }
 
         #div_audio {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 640px;
+            width: 1150px;
 
-            audio {
-                width: 600px;
-                height: 30px;
-            }
+            div {
+                width: 640px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
 
-            #favorito_vazio {
-                cursor: pointer;
-                width: 25px;
-                height: 25px;
-                color: rgb(255, 166, 0);
-            }
+                audio {
+                    width: 600px;
+                    height: 30px;
+                }
 
-            #favorito_preenchido {
-                cursor: pointer;
-                width: 25px;
-                height: 25px;
-                color: rgb(255, 166, 0);
-                display: none;
-            }
-        }
+                #favorito_vazio {
+                    cursor: pointer;
+                    width: 25px;
+                    height: 25px;
+                    color: rgb(255, 166, 0);
+                }
 
-        #div_playlist {
-            width: 440px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            justify-content: flex-end;
-            margin-right: 60px;
-
-            svg {
-                width: 40px;
-                height: 40px;
-                color: white;
-                cursor: pointer;
-            }
-
-            p {
-                font-size: 20px;
-                margin-left: 7px;
-                color: white;
-                cursor: pointer;
+                #favorito_preenchido {
+                    cursor: pointer;
+                    width: 25px;
+                    height: 25px;
+                    color: rgb(255, 166, 0);
+                }
             }
         }
     }
@@ -111,74 +89,49 @@
             width: 400px;
         }
 
-        #div_playlist {
-            width: 340px;
+        #div_audio {
+            width: 1000px;
         }
     }
 }
 
 @media screen and (max-width:1500px) {
-    #player div {
-        #div_1 {
-            width: 300px;
-        }
+    #player div #div_audio {
+        width: 900px;
 
-        #div_playlist {
-            width: 240px;
+        div {
+            width: 540px;
+
+            audio {
+                width: 500px;
+            }
         }
     }
 }
 
-@media screen and (max-width:1300px) {
+@media screen and (max-width:1350px) {
     #player div #div_audio {
-        width: 440px;
+        width: 800px;
 
-        audio {
+        div {
+            width: 440px;
+
+            audio {
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1250px) {
+    #player div {
+        #div_1 {
             width: 400px;
         }
     }
-}
 
-@media screen and (max-width:1100px) {
-    #player div {
-        #div_1 {
-            width: 250px;
-            margin-left: 25px;
-
-            #div_nomes {
-                #nome_musica {
-                    font-size: 13px;
-                }
-
-                #artista {
-                    font-size: 10px;
-                }
-            }
-        }
-
-        #div_playlist {
-            width: 250px;
-            margin-right: 25px;
-
-            svg {
-                width: 30px;
-                height: 30px;
-            }
-
-            p {
-                font-size: 20px;
-            }
-        }
-    }
-}
-
-@media screen and (max-width:1000px) {
     #player div #div_audio {
-        width: 340px;
-
-        audio {
-            width: 300px;
-        }
+        width: 650px;
     }
 }
 
@@ -187,14 +140,13 @@
     #player {
         height: 100px;
         z-index: 0;
-        align-items: flex-start;
 
         div {
             height: 50px;
 
             #div_1 {
-                width: 200px;
-                margin-left: 10px;
+                width: 220px;
+                margin-left: 25px;
 
                 #div_album {
                     width: 40px;
@@ -218,67 +170,69 @@
             }
 
             #div_audio {
-                width: 250px;
+                width: 510px;
 
-                audio {
-                    width: 220px;
-                    height: 25px;
-                }
+                div {
+                    width: 350px;
 
-                #favorito_vazio {
-                    width: 20px;
-                    height: 20px;
-                }
+                    audio {
+                        width: 320px;
+                        height: 25px;
+                    }
 
-                #favorito_preenchido {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
+                    #favorito_vazio {
+                        width: 20px;
+                        height: 20px;
+                    }
 
-            #div_playlist {
-                width: 200px;
-                margin-right: 20px;
-
-                p {
-                    font-size: 15px;
-                }
-
-                svg {
-                    width: 30px;
-                    height: 30px;
+                    #favorito_preenchido {
+                        width: 20px;
+                        height: 20px;
+                    }
                 }
             }
         }
     }
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:800px) {
 
-    #player div {
-        #div_1 {
-            width: 180px;
-        }
+    #player div #div_audio {
+        width: 450px;
+    }
+}
 
-        #div_audio {
-            width: 210px;
+@media screen and (max-width:650px) {
+
+    #player div #div_audio {
+        width: 300px;
+
+        div {
+            width: 250px;
 
             audio {
-                width: 180px;
+                width: 220px;
+                height: 20px;
             }
-        }
-
-        #div_playlist {
-            width: 180px;
         }
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:500px) {
 
     #player div {
         #div_1 {
-            width: 130px;
+            width: 150px;
+        }
+    }
+}
+
+@media screen and (max-width:450px) {
+
+    #player div {
+        #div_1 {
+            width: 120px;
+            margin-left: 10px;
 
             #div_album {
                 width: 30px;
@@ -299,74 +253,27 @@
             }
         }
 
-        #div_playlist {
-            width: 100px;
+        #div_audio {
+            width: 200px;
 
-            p {
-                display: none;
-            }
-        }
-    }
-}
+            div {
+                width: 170px;
 
-@media screen and (max-width:500px) {
+                audio {
+                    width: 150px;
+                    height: 15px;
+                }
 
-    #player div {
-        #div_1 {
-            width: 110px;
+                #favorito_vazio {
+                    width: 15px;
+                    height: 15px;
+                }
 
-            #div_album {
-                width: 25px;
-
-                #imagem_album {
-                    width: 25px;
+                #favorito_preenchido {
+                    width: 15px;
+                    height: 15px;
                 }
             }
-        }
-
-        #div_audio {
-            width: 170px;
-
-            audio {
-                width: 150px;
-            }
-
-            #favorito_vazio {
-                width: 15px;
-                height: 15px;
-            }
-
-            #favorito_preenchido {
-                width: 15px;
-                height: 15px;
-            }
-        }
-
-        #div_playlist {
-            width: 80px;
-
-            p {
-                display: none;
-            }
-        }
-    }
-}
-
-@media screen and (max-width:400px) {
-
-    #player div {
-        #div_audio {
-            width: 150px;
-
-            audio {
-                width: 130px;
-                height: 20px;
-            }
-        }
-
-        #div_playlist {
-            width: 35px;
-            margin-right: 5px;
         }
     }
 }

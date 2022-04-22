@@ -34,94 +34,6 @@
     }
 }
 
-#section_loading {
-    position: fixed;
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    display: none;
-
-    div {
-        width: 87%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img {
-            width: 120px;
-        }
-    }
-}
-
-#section_musicas {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    display: none;
-
-    div {
-        width: 86%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        #tabela_musicas {
-            width: 1200px;
-            text-align: center;
-            table-layout: fixed;
-            border-collapse: separate;
-
-            thead tr th {
-                color: rgb(255, 255, 255);
-            }
-
-            tbody #musica td {
-                padding: 15px 0;
-                color: rgb(255, 255, 255);
-                font-size: 15px;
-
-                #imagem_album {
-                    width: 60px;
-                    border-radius: 2px;
-                }
-
-                svg {
-                    cursor: pointer;
-                    width: 30px;
-                    color: rgb(255, 255, 255);
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1600px) {
-
-    #section_erro div p {
-        font-size: 60px;
-    }
-
-    #section_musicas div {
-        #tabela_musicas {
-            width: 1000px;
-        }
-    }
-}
-
-@media screen and (max-width: 1450px) {
-
-    #section_musicas div #tabela_musicas {
-        width: 850px;
-
-        tbody #musica td #play {
-            width: 25px;
-        }
-
-    }
-}
-
 @media screen and (max-width: 1250px) {
 
     #section_buscar div {
@@ -136,22 +48,6 @@
             height: 25px;
         }
     }
-
-    #section_musicas div #tabela_musicas {
-        width: 750px;
-
-        tbody #musica td {
-            font-size: 12px;
-
-            #imagem_album {
-                width: 50px;
-            }
-
-            #play {
-                width: 20px;
-            }
-        }
-    }
 }
 
 @media screen and (max-width: 1100px) {
@@ -160,69 +56,12 @@
         width: 250px;
         height: 30px;
     }
-
-    #section_loading div img {
-        width: 100px;
-    }
-
-    #section_erro {
-        div p {
-            font-size: 50px;
-        }
-    }
-
-    #section_musicas div #tabela_musicas {
-        width: 650px;
-
-        tbody #musica td {
-            #imagem_album {
-                width: 50px;
-            }
-
-            #play {
-                width: 20px;
-            }
-        }
-    }
 }
 
 @media screen and (max-width: 900px) {
 
-    #section_buscar div,
-    #section_loading div,
-    #section_erro div,
-    #section_musicas div {
+    #section_buscar div {
         width: 100%;
-    }
-}
-
-@media screen and (max-width: 750px) {
-
-    #section_erro {
-        div p {
-            font-size: 40px;
-        }
-    }
-
-    #section_musicas div #tabela_musicas {
-        width: 600px;
-    }
-}
-
-@media screen and (max-width: 650px) {
-
-    #section_loading div img {
-        width: 80px;
-    }
-
-    #section_erro {
-        div p {
-            font-size: 30px;
-        }
-    }
-
-    #section_musicas div #tabela_musicas {
-        width: 500px;
     }
 }
 
@@ -235,33 +74,6 @@
             font-size: 13px;
         }
     }
-
-    #section_erro {
-        div p {
-            font-size: 25px;
-        }
-    }
-
-    #section_musicas div #tabela_musicas {
-        width: 400px;
-
-        thead tr th {
-            font-size: 12px;
-        }
-
-        tbody #musica td {
-            font-size: 10px;
-
-            #imagem_album {
-                width: 40px;
-            }
-
-            #play {
-                width: 20px;
-            }
-        }
-    }
-
 }
 
 @media screen and (max-width: 400px) {
@@ -276,40 +88,6 @@
             width: 20px;
             height: 20px;
             margin-left: 10px;
-        }
-    }
-
-    #section_loading div img {
-        width: 60px;
-    }
-
-    #section_erro {
-        div p {
-            font-size: 20px;
-        }
-    }
-
-    #section_musicas {
-        margin-bottom: 80px;
-
-        div #tabela_musicas {
-            width: 350px;
-
-            thead tr th {
-                font-size: 10px;
-            }
-
-            tbody #musica td {
-                font-size: 8px;
-
-                #imagem_album {
-                    width: 35px;
-                }
-
-                #play {
-                    width: 15px;
-                }
-            }
         }
     }
 }

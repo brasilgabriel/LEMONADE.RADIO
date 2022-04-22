@@ -1,7 +1,5 @@
-import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
-import { PlayerComponent } from 'src/app/pages/player/player.component';
-import { BuscarComponent } from '../buscar/buscar.component';
-
+import { Component, OnInit } from '@angular/core';
+import { ResultadoMusicasComponent } from '../resultado-musicas/resultado-musicas.component';
 @Component({
   selector: 'app-historico',
   templateUrl: 'historico.component.html',
@@ -9,9 +7,9 @@ import { BuscarComponent } from '../buscar/buscar.component';
 })
 export class HistoricoComponent implements OnInit {
 
-  @ViewChild('section_loading', { static: false }) section_loading!: ElementRef;
-  @ViewChild('section_mensagem', { static: false }) section_mensagem!: ElementRef;
-  @ViewChild('section_historico', { static: false }) section_historico!: ElementRef;
+  section_loading: boolean = false;
+  section_mensagem: boolean = false;
+  section_historico: boolean = false;
 
   frase: string;
   historico: any;
@@ -22,52 +20,37 @@ export class HistoricoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
+    setTimeout(() => { // se não tiver o setTimeout(), vai dar erro pois não é possível manipular a DOM assim que a página carrega
       this.historico = [];
       this.mostrarHistorico();
     }, 10);
 
-    BuscarComponent.mostrarMensagem.subscribe((display: string) => { this.mostrarMensagem(display) });
-    BuscarComponent.esconderHistorico.subscribe(() => { this.esconderHistorico() });
+    ResultadoMusicasComponent.mostrarMensagem.subscribe((boolean: boolean) => { this.mostrarMensagem(boolean) });
+    ResultadoMusicasComponent.esconderHistorico.subscribe(() => { this.esconderHistorico() });
   }
 
-  mostrarHistorico() {
-    this.historico = JSON.parse(localStorage.getItem('Histórico') as any);
-
-    switch (this.historico !== null) {
-
-      case true:
-        if (this.historico.length > 0) {
-          this.section_loading.nativeElement.style.display = 'none';
-          this.section_mensagem.nativeElement.style.display = 'none';
-          this.section_historico.nativeElement.style.display = 'flex';
-
-        } else {
-          this.section_loading.nativeElement.style.display = 'none';
-          this.section_historico.nativeElement.style.display = 'none';
-          this.section_mensagem.nativeElement.style.display = 'flex';
-        }
-        break;
-
-      case false:
-        this.section_loading.nativeElement.style.display = 'none';
-        this.section_historico.nativeElement.style.display = 'none';
-        this.section_mensagem.nativeElement.style.display = 'flex';
-        break
-    }
-  }
-
-  mostrarMensagem(display: string) {
+  mostrarMensagem(boolean: boolean) {
     this.frase = 'NENHUM RESULTADO ENCONTRADO';
-
-    if (display === 'flex') {
-      this.section_mensagem.nativeElement.style.display = 'flex';
-    }
+    boolean === true ? this.section_mensagem = true : '';
   }
 
   esconderHistorico() {
-    this.section_mensagem.nativeElement.style.display = 'none';
-    this.section_historico.nativeElement.style.display = 'none';
+    this.section_mensagem = false;
+    this.section_historico = false;
+  }
+
+  mostrarHistorico() {
+    JSON.parse(localStorage.getItem('Histórico') as any) !== null ? this.historico = JSON.parse(localStorage.getItem('Histórico') as any) : '';
+
+    this.section_loading = false;
+    this.section_historico = false;
+    this.section_mensagem = true;
+
+    if (this.historico.length > 0) {
+      this.section_loading = false;
+      this.section_mensagem = false;
+      this.section_historico = true;
+    }
   }
 
   excluirMusicaHistorico(musica: any) {

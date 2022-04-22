@@ -14,17 +14,17 @@ export class PlayerComponent implements OnInit {
   menuSelecionado: string;
 
   constructor(private router: Router) {
-    this.menuSelecionado = 'buscar'; // dps colocar inicio
+    this.menuSelecionado = 'inicio'; // dps colocar inicio
   }
 
   ngOnInit(): void {
-    this.router.navigateByUrl(`/player/buscar`) // dps colocar inicio
+    this.router.navigateByUrl(`/player/inicio`) // dps colocar inicio
   }
 
   selecionarMenu(menu: string) {
     menu === 'buscar' ? PlayerComponent.mostrarHistorico.emit() : '';
 
     this.menuSelecionado = menu;
-    this.router.navigateByUrl(`/player/${menu}`);
+    this.router.navigateByUrl(`/player/${menu}`); // para navegar pelo site
   }
 }
