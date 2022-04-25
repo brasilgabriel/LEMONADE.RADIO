@@ -1,27 +1,49 @@
-# ProjetoAngular
+<h1 align="center">LEMONADE.RADIO</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+<p align="center">
+    <img src="http://img.shields.io/static/v1?label=DATA DA ÚLTIMA VERSÃO&message=abril/2022&color=yellow&style=for-the-badge"/>
+</p>
 
-## Development server
+## Descrição do projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+LEMONADE.RADIO é um site de streaming de músicas, transmite músicas usando a [API do Deezer](https://rapidapi.com/deezerdevs/api/deezer-1).
 
-## Code scaffolding
+É um lugar perfeito para você descobrir músicas novas ou ouvir suas músicas preferidas quantas vezes quiser. Pode ser acessado em todos os tipos de dispositivos, pois o site tem o design responsivo.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Esse projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 13.3.0.
 
-## Build
+##  Fucionalidades do projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Buscar músicas ou artistas:
+<img src="src/assets/img/buscando-musicas.gif">
 
-## Running unit tests
+- Reproduzir as músicas:
+<img src="src/assets/img/reproduzindo-musicas.gif">
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Favoritar suas músicas preferidas:
+<img src="src/assets/img/favoritando-musicas.gif">
 
-## Running end-to-end tests
+## Acesso ao projeto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Você pode acessar o projeto [por aqui](https://lemonade-radio.firebaseapp.com) ou baixá-lo.
 
-## Further help
+## Pré-requisitos para baixar o projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para começar a utilizar o projeto é necessário ter o [Node.js](https://nodejs.org/pt-br/) e o [@angular/cli](https://angular.io/) instalados e executar alguns comandos.
+
+### Execute:
+```bash
+$ npm ci
+$ npm run build
+```
+## Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Angular](https://angular.io/)
+- [Node.js](https://nodejs.org/pt-br/)
+
+
+
+Feito por GABRIEL BRASIL [Veja meu Linkedin](https://www.linkedin.com/in/gabriel-br/).

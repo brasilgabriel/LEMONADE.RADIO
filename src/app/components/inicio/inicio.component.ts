@@ -18,6 +18,7 @@ export class InicioComponent implements OnInit {
   lancamentos: any = [];
   rockAntigas: any = [];
   section_inicio: boolean = true;
+  historico: any = [];
 
   constructor(private musicasService: MusicasService) {
     this.arrayArtistas = [ // preferi fazer assim pois a API só da a opção de buscar
@@ -43,6 +44,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarInformacoes();
+    this.historico = JSON.parse(localStorage.getItem('Histórico') as any);
   }
 
   // metódo para buscar artistas/músicas já escolhidos por mim para usá-los na tela de início
@@ -79,6 +81,23 @@ export class InicioComponent implements OnInit {
   }
 
   reproduzirMusica(musica: any) {
+    localStorage.removeItem('Histórico');
+    this.historico.push(musica);
+
+    let cont: number = 0;
+
+    for (let i in this.historico) {
+      if (JSON.stringify(musica) === JSON.stringify(this.historico[i])) { // para ver se a música atual já existe no histórico
+        cont += 1
+
+        if (cont > 1) {
+          cont = 0;
+          this.historico.splice(i, 1); // se já existir, a música atual será removida para não ficar com músicas repetidas
+        }
+      }
+    }
+
+    localStorage.setItem('Histórico', JSON.stringify(this.historico));
     InicioComponent.novaMusica.emit(musica);
   }
 
