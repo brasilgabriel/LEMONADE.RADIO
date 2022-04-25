@@ -1,9 +1,5 @@
 <h1 align="center">LEMONADE.RADIO</h1>
 
-<p align="center">
-    <img src="http://img.shields.io/static/v1?label=DATA DA ÚLTIMA VERSÃO&message=abril/2022&color=yellow&style=for-the-badge"/>
-</p>
-
 ## Descrição do projeto
 
 LEMONADE.RADIO é um site de streaming de músicas, transmite músicas usando a [API do Deezer](https://rapidapi.com/deezerdevs/api/deezer-1).
