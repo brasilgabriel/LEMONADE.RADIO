@@ -8,7 +8,7 @@ LEMONADE.RADIO é um site de streaming de músicas, transmite músicas usando a 
 
 Esse projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 13.3.0.
 
-##  Fucionalidades do projeto
+##  Funcionalidades do projeto
 
 - Buscar músicas ou artistas:
 <img src="src/assets/img/buscando-musicas.gif">
